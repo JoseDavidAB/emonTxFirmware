@@ -9,6 +9,18 @@
  
  Authors: Glyn Hudson, Trystan Lea
  Builds upon JeeLabs RF12 library and Arduino
+
+ THIS SKETCH REQUIRES:
+
+ Libraries in the standard arduino libraries folder:
+	- JeeLib		https://github.com/jcw/jeelib
+	- EmonLib		https://github.com/openenergymonitor/EmonLib.git
+	- OneWire library	http://www.pjrc.com/teensy/td_libs_OneWire.html
+	- DallasTemperature	http://download.milesburton.com/Arduino/MaximTemperature
+
+ Other files in project directory (should appear in the arduino tabs above)
+	- emontx_lib.ino
+	- print_to_serial.ino
  
 */
 
@@ -81,7 +93,7 @@ void loop()
   emontx.T3 = sensors.getTempC(address_T3) * 100;
   emontx.T4 = sensors.getTempC(address_T4) * 100;
   
-  ct1.calcVI(20,2000);                                                  // Calculate all. No.of wavelengths, time-out 
+  ct1.calcVI(20,2000);                                                  // Calculate all. No.of crossings, time-out 
   emontx.realPower = ct1.realPower;
   emontx.apparentPower = ct1.apparentPower;
     

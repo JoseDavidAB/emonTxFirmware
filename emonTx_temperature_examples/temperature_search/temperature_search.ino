@@ -1,3 +1,10 @@
+// THIS SKETCH REQUIRES:
+
+// Libraries in the standard arduino libraries folder:
+//
+//	- OneWire library	http://www.pjrc.com/teensy/td_libs_OneWire.html
+//	- DallasTemperature	http://download.milesburton.com/Arduino/MaximTemperature
+
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
@@ -13,7 +20,11 @@ DallasTemperature sensors(&oneWire);
 
 void setup()
 {
+  delay(1000);
   Serial.begin(9600);
+  Serial.println("Temperature search");
+  Serial.println("waiting 6 seconds before printing");
+  delay(6000);
 
   sensors.begin();
   
